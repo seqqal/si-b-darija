@@ -1,21 +1,21 @@
-/* SI b Darija site: tokens from the design system (brand/tokens.css). */
+/* SI b Darija site: design system v5 "Paper and saffron" (brand/tokens.css). The old token names are kept as aliases here. */
 :root {
-  --night: #000936;
-  --night-raised: #0b1650;
-  --night-line: #26337a;
-  --ink: #ffffff;
-  --ink-muted: #a9b3e0;
-  --sun: #ffd43b;
-  --on-sun: #000936;
-  --coral: #ff5a3c;
-  --cyan: #00f9fe;
+  --night: #FAF6EE;
+  --night-raised: #FFFFFF;
+  --night-line: #E7E0D3;
+  --ink: #17140F;
+  --ink-muted: #6E675D;
+  --sun: #FFC21A;
+  --on-sun: #17140F;
+  --coral: #FF4A1C;
+  --cyan: #17140F;
   --radius-sm: 16px;
   --radius-md: 32px;
   --radius-bubble: 40px;
-  --font-display: "Lalezar", "Readex Pro", system-ui, sans-serif;
-  --font-body: "Readex Pro", "Noto Sans Arabic", system-ui, sans-serif;
-  --font-latin: "Montserrat", "Readex Pro", system-ui, sans-serif;
-  color-scheme: dark;
+  --font-display: "Alexandria", "Noto Sans Arabic", system-ui, sans-serif;
+  --font-body: "Alexandria", "Noto Sans Arabic", system-ui, sans-serif;
+  --font-latin: "Alexandria", system-ui, sans-serif;
+  color-scheme: light;
 }
 * { box-sizing: border-box; }
 html { background: var(--night); }
@@ -27,8 +27,8 @@ body {
   font-size: 17px;
   line-height: 1.7;
 }
-a { color: var(--sun); text-underline-offset: 3px; }
-a:hover { color: var(--ink); }
+a { color: var(--ink); text-decoration-color: var(--sun); text-decoration-thickness: 3px; text-underline-offset: 3px; }
+a:hover { background: var(--sun); }
 .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
 
 header.top { padding: 20px 0; }
@@ -38,7 +38,7 @@ header.top .wrap { display: flex; align-items: center; justify-content: space-be
 .wordmark { font-family: var(--font-latin); font-weight: 700; font-size: 18px; }
 nav.links { display: flex; gap: 18px; font-size: 15px; }
 nav.links a { color: var(--ink-muted); text-decoration: none; }
-nav.links a:hover, nav.links a[aria-current] { color: var(--sun); }
+nav.links a:hover, nav.links a[aria-current] { color: var(--ink); box-shadow: inset 0 -4px 0 var(--sun); }
 
 .hero { padding: 32px 0 48px; text-align: center; }
 .hero .logo { width: min(240px, 60vw); height: auto; }
@@ -49,12 +49,13 @@ nav.links a:hover, nav.links a[aria-current] { color: var(--sun); }
   background: var(--sun);
   color: var(--on-sun);
   border-radius: var(--radius-bubble);
-  box-shadow: 6px 6px 0 var(--cyan);
+  box-shadow: 6px 6px 0 var(--ink);
   font-family: var(--font-display);
+  font-weight: 900;
   font-size: clamp(28px, 7vw, 44px);
   line-height: 1.35;
 }
-.bubble bdi { font-family: var(--font-latin); font-weight: 800; font-size: 0.82em; }
+.bubble bdi { font-family: var(--font-latin); font-weight: 800; font-size: 0.94em; }
 .hero p.lead { margin: 28px auto 0; max-width: 560px; color: var(--ink-muted); font-size: 18px; }
 
 .cards { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); margin: 0 0 48px; }
@@ -64,23 +65,25 @@ nav.links a:hover, nav.links a[aria-current] { color: var(--sun); }
   border-radius: var(--radius-md);
   padding: 24px;
 }
-.card h2 { margin: 0 0 6px; font-family: var(--font-display); font-weight: 400; font-size: 26px; line-height: 1.3; color: var(--sun); }
+.card h2 { margin: 0 0 6px; font-family: var(--font-display); font-weight: 900; font-size: 26px; line-height: 1.3; color: var(--ink); }
+.card h2 span { background: var(--sun); border-radius: 8px; padding: 0 6px; }
 .card p { margin: 0; color: var(--ink-muted); font-size: 15px; }
 .card .ar { color: var(--ink); font-size: 17px; margin-bottom: 6px; }
 
 .follow { text-align: center; margin: 0 0 56px; }
-.follow h2 { font-family: var(--font-display); font-weight: 400; font-size: 30px; margin: 0 0 16px; }
+.follow h2 { font-family: var(--font-display); font-weight: 900; font-size: 30px; margin: 0 0 16px; }
 .follow ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 .follow a {
   display: inline-block; padding: 10px 20px; border-radius: 999px;
-  border: 2px solid var(--cyan); color: var(--ink); text-decoration: none; font-weight: 600;
+  border: 2px solid var(--ink); color: var(--ink); text-decoration: none; font-weight: 600;
 }
-.follow a:hover { background: var(--cyan); color: var(--night); }
+.follow a:hover { background: var(--sun); }
 
 article.doc { padding: 16px 0 48px; }
 article.doc h1 { font-family: var(--font-latin); font-weight: 800; font-size: clamp(28px, 6vw, 38px); line-height: 1.2; margin: 8px 0 4px; }
 article.doc .meta { color: var(--ink-muted); font-size: 14px; margin: 0 0 28px; }
-article.doc h2 { font-family: var(--font-latin); font-weight: 700; font-size: 20px; margin: 32px 0 8px; color: var(--sun); }
+article.doc h2 { font-family: var(--font-latin); font-weight: 800; font-size: 20px; margin: 32px 0 8px; color: var(--ink); }
+article.doc h2::before { content: ""; display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: var(--sun); margin-right: 10px; vertical-align: 2px; }
 article.doc p, article.doc li { color: var(--ink); }
 article.doc ul { padding-inline-start: 22px; }
 article.doc li { margin: 4px 0; }
@@ -92,7 +95,7 @@ article.doc li { margin: 4px 0; }
 footer.bottom { border-top: 1px solid var(--night-line); padding: 24px 0 40px; color: var(--ink-muted); font-size: 14px; }
 footer.bottom .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 footer.bottom a { color: var(--ink-muted); }
-footer.bottom a:hover { color: var(--sun); }
+footer.bottom a:hover { color: var(--ink); }
 footer.bottom nav { display: flex; gap: 18px; }
 
 @media (max-width: 420px) {
